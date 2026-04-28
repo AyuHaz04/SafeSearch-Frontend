@@ -1,0 +1,369 @@
+/* =========================
+   GLOBAL RESET (SAFE)
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+/* MAIN BACKGROUND */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #eef2ff 100%
+  );
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #f8fafc;
+  padding: 20px;
+  border-right: 1px solid #e2e8f0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  color: #6366f1;
+}
+
+/* NAV LINKS */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #334155;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #e2e8f0;
+}
+
+.sidebar a.active {
+  background: #6366f1;
+  color: white;
+}
+
+/* =========================
+   MAIN AREA
+========================= */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f1f5f9;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 30px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* USER SECTION */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* AVATAR */
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+}
+
+/* USERNAME */
+.username {
+  font-size: 14px;
+  color: #334155;
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+/* .dropdown-menu {
+  position: fixed;   /* 🔥 CHANGE FROM absolute → fixed */
+  /* top: 70px; */
+  /* right: 40px; */
+
+  /* background: white;
+  border: 1px solid #e2e8f0; */
+  /* border-radius: 10px; */
+
+  /* padding: 5px 0; */
+  /* min-width: 150px; */
+
+  /* box-shadow: 0 10px 25px rgba(0,0,0,0.1); */
+
+  /* z-index: 999999;   🔥 MAX PRIORITY */
+/* }  */
+
+/* .dropdown-menu div {
+  padding: 10px 15px;
+  cursor: pointer;
+} */
+
+/* .dropdown-menu div:hover {
+  background: #f1f5f9;
+} */
+
+/* =========================
+   CONTENT
+========================= */
+.content {
+  padding: 20px 40px;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+.search-bar {
+  margin: 15px 0 25px;
+  padding: 8px 10px;
+  width: 250px;
+
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+}
+
+/* =========================
+   GRID
+========================= */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* =========================
+   FILE CARD
+========================= */
+.file-card {
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+
+  transition: all 0.25s ease;
+}
+
+.file-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   BUTTON ROW
+========================= */
+.file-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* VIEW */
+.btn-view {
+  background: #6366f1;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* SHARE */
+.btn-share {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* DELETE */
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =========================
+   SHARE BOX
+========================= */
+/* SHARE BOX */
+.share-box {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;       /* 🔥 important */
+}
+
+/* INPUT */
+.share-box input {
+  flex: 1;
+  min-width: 0;      /* 🔥 prevents overflow */
+
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* SEND BUTTON */
+.btn-send {
+  background: #6366f1;
+  color: white;
+  border: none;
+
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  flex-shrink: 0;    /* 🔥 prevents it from getting pushed out */
+}
+
+.btn-send:hover {
+  background: #4f46e5;
+}
+
+
+.file-card {
+  transition: 0.25s;
+}
+
+.file-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+/* FILE HEADER */
+.file-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ICON */
+.file-icon {
+  font-size: 20px;
+}
+
+/* NAME */
+.file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ALL BUTTONS */
+button {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* VIEW */
+.btn-view {
+  background: #6366f1;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-view:hover {
+  background: #4f46e5;
+}
+
+/* SHARE */
+.btn-share {
+  background: #0ea5e9;
+  color: white;
+  border-radius: 8px;
+}
+
+.btn-share:hover {
+  background: #0284c7;
+}
+
+/* DELETE */
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border-radius: 8px;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}

@@ -1,0 +1,79 @@
+/* CONTAINER */
+.shared-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* SECTION */
+.shared-section h3 {
+  margin-bottom: 10px;
+}
+
+/* EMPTY */
+.empty {
+  color: #64748b;
+}
+
+/* USER ROW */
+/* USER ROW FIX */
+.shared-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #f8fafc;
+  padding: 6px 8px;
+  border-radius: 8px;
+
+  margin-top: 6px;
+  gap: 8px;
+}
+
+/* EMAIL TEXT */
+.shared-user span {
+  font-size: 13px;
+  color: #334155;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* REMOVE BUTTON FIX */
+.shared-user button {
+  background: #ef4444;
+  color: white;
+  border: none;
+
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+
+  cursor: pointer;
+  flex-shrink: 0; /* 🔥 prevents overflow */
+}
+
+/* HOVER */
+.shared-user button:hover {
+  background: #dc2626;
+}
+
+/* SECTION CARD LOOK */
+.shared-section {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+/* HEADINGS */
+.shared-section h3 {
+  margin-bottom: 15px;
+}
+
+/* FILE INFO */
+.file-info {
+  font-size: 13px;
+  color: #64748b;
+  margin: 5px 0;
+}

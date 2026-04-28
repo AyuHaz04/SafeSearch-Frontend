@@ -1,0 +1,94 @@
+/* PAGE */
+.auth-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.auth-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 18px;
+  width: 360px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* TITLE */
+.auth-card h2 {
+  margin-bottom: 5px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.auth-subtext {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+/* 🔥 INPUT FIX */
+.auth-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+
+  background: #f9fafb; /* 🔥 light, not black */
+  color: #0f172a;
+
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* REMOVE BOOTSTRAP DARK EFFECT */
+.auth-card input:focus {
+  background: white;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.15);
+}
+
+/* PLACEHOLDER */
+.auth-card input::placeholder {
+  color: #94a3b8;
+}
+
+/* BUTTON */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.auth-btn:hover {
+  background: #4f46e5;
+}
+
+/* SWITCH */
+.auth-switch {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.auth-switch a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* 🔥 REMOVE DARK INPUTS FROM BOOTSTRAP */
+input {
+  background-color: inherit !important;
+}
