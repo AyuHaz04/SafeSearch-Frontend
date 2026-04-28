@@ -7,27 +7,40 @@ import "../styles/Auth.css";
 const API_URL = "https://safesearch-xpj5.onrender.com";
 
 function Register() {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      await axios.post(
-        `${API_URL}/api/auth/register` ,
-        { email, password }
-      );
+  if (!email || !password) {
+    toast.error("All fields required");
+    return;
+  }
 
-      toast.success("Account created successfully!");
+  try {
+    setLoading(true);
 
-      navigate("/login");
-    } catch (err) {
-      toast.error("Registration failed");
-    }
-  };
+    await axios.post(
+      `${API_URL}/api/auth/register`,
+      { email, password }
+    );
+
+    toast.success("Account created successfully!");
+    navigate("/login");
+
+  } catch (err) {
+    console.error(err);
+    toast.error(
+      err.response?.data?.message || "Registration failed"
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="auth-container">
