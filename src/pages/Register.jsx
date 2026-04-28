@@ -34,7 +34,6 @@ function Register() {
       <div className="auth-card">
         <h2>Create Account</h2>
         <p>Start your journey</p>
-        console.log(API_URL);
 
         <form onSubmit={handleRegister}>
           <input
@@ -51,7 +50,13 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit">Register</button>
+          <button
+            type="submit"
+            className="auth-btn"
+            disabled={loading}
+          >
+            {loading ? "Registering..." : "Create Account"}
+          </button>
         </form>
 
         <p className="auth-switch">

@@ -92,3 +92,41 @@
 input {
   background-color: inherit !important;
 }
+
+/* MAIN BUTTON */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+/* HOVER */
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.35);
+}
+
+/* CLICK */
+.auth-btn:active {
+  transform: scale(0.97);
+}
+
+/* DISABLED */
+.auth-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
