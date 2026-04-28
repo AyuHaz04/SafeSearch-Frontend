@@ -4,6 +4,8 @@ import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import "../styles/Upload.css";
 
+const API_URL = "https://safesearch-xpj5.onrender.com";
+
 function Upload() {
   const [file, setFile] = useState(null);
   const { user } = useContext(AuthContext);
@@ -21,7 +23,7 @@ function Upload() {
     formData.append("email", user.email);
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/upload`, formData);
+      await axios.post(`${API_URL}/api/upload`, formData);
       toast.success("File uploaded!");
       setFile(null);
     } catch (err) {

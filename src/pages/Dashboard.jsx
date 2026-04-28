@@ -4,6 +4,8 @@ import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import "../styles/Dashboard.css";
 
+const API_URL = "https://safesearch-xpj5.onrender.com";
+
 function Dashboard() {
   const [docs, setDocs] = useState([]);
   const [search, setSearch] = useState("");
@@ -18,7 +20,7 @@ function Dashboard() {
 
   const fetchDocs = async () => {
     const res = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/documents/${user.email}`
+      `${API_URL}/api/documents/${user.email}`
     );
     setDocs(res.data);
   };
@@ -26,7 +28,7 @@ function Dashboard() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `${import.meta.env.VITE_API_URL}/api/delete/${id}`,
+        `${API_URL}/api/delete/${id}`,
         { data: { email: user.email } }
       );
 
@@ -45,7 +47,7 @@ function Dashboard() {
 
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/share/${id}`,
+        `${API_URL}/api/share/${id}`,
         { email: shareEmail }
       );
 
@@ -96,7 +98,7 @@ function Dashboard() {
 
             <div className="file-actions">
               <a
-                href={`${import.meta.env.VITE_API_URL}/uploads/${doc.filepath}`}
+                href={`${API_URL}/uploads/${doc.filepath}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-view"

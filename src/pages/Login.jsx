@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../styles/Auth.css";
 
+const API_URL = "https://safesearch-xpj5.onrender.com";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +19,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        `${API_URL}/api/auth/login`,
         { email, password }
       );
 

@@ -4,28 +4,44 @@ import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import "../styles/Shared.css";
 
+const API_URL = "https://safesearch-xpj5.onrender.com";
+
 function Shared() {
   const { user } = useContext(AuthContext);
   const [sharedWithMe, setSharedWithMe] = useState([]);
   const [sharedByMe, setSharedByMe] = useState([]);
+  const getFileIcon = (name) => {
+  const ext = name.split(".").pop().toLowerCase();
+
+  if (ext === "pdf") return "📄";
+  if (ext === "doc" || ext === "docx") return "📝";
+  if (ext === "xls" || ext === "xlsx") return "📊";
+  if (ext === "png" || ext === "jpg") return "🖼️";
+
+  return "📁";
+};
 
   useEffect(() => {
     fetchShared();
   }, []);
 
   const fetchShared = async () => {
+  try {
     const res = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/shared/${user.email}`
+      `${API_URL}/api/shared/${user.email}`
     );
 
     setSharedWithMe(res.data.sharedWithMe || []);
     setSharedByMe(res.data.sharedByMe || []);
-  };
-
+  } catch (err) {
+    console.error(err);
+    toast.error("Failed to load shared files");
+  }
+};
   const handleRemove = async (docId, email) => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/remove-share/${docId}`,
+        `${API_URL}/api/remove-share/${docId}`,
         { email }
       );
 
@@ -61,7 +77,7 @@ function Shared() {
                 </p>
 
                 <a
-                  href={`${import.meta.env.VITE_API_URL}/uploads/${doc.filepath}`}
+                  href={`${API_URL}/uploads/${doc.filepath}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-view"
@@ -86,17 +102,19 @@ function Shared() {
               <div className="file-card" key={doc._id}>
                 <h5>{doc.filename}</h5>
 
-                {doc.sharedWith.map((email, i) => (
-  <div key={i} className="shared-user">
-    <span>{email}</span>
+               {(doc.sharedWith || []).length === 0 ? (
+                  <p className="empty">No users</p>
+                ) : (
+                  (doc.sharedWith || []).map((email, i) => (
+                    <div key={i} className="shared-user">
+                      <span>{email}</span>
 
-    <button
-      onClick={() => handleRemove(doc._id, email)}
-    >
-      Remove
-    </button>
-  </div>
-))}
+                      <button onClick={() => handleRemove(doc._id, email)}>
+                        Remove
+                      </button>
+                    </div>
+                  ))
+                )}
               </div>
             ))
           )}

@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../styles/Auth.css";
 
+const API_URL = "https://safesearch-xpj5.onrender.com";
+
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +17,7 @@ function Register() {
 
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/register` ,
+        `${API_URL}/api/auth/register` ,
         { email, password }
       );
 
@@ -32,6 +34,7 @@ function Register() {
       <div className="auth-card">
         <h2>Create Account</h2>
         <p>Start your journey</p>
+        console.log(API_URL);
 
         <form onSubmit={handleRegister}>
           <input
