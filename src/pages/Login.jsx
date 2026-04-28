@@ -17,11 +17,11 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${import.meta.env.VITE_API_URL}/api/auth/login`,
         { email, password }
       );
 
-      login(res.data.token, res.data.user);;
+      login(res.data.token, res.data.user);
       toast.success("Welcome back!");
 
       navigate("/profile"); // 🔥 go to profile after login

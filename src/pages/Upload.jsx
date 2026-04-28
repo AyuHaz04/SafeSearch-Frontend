@@ -21,7 +21,7 @@ function Upload() {
     formData.append("email", user.email);
 
     try {
-      await axios.post("http://localhost:5000/api/upload", formData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/upload`, formData);
       toast.success("File uploaded!");
       setFile(null);
     } catch (err) {

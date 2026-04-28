@@ -15,7 +15,7 @@ function Shared() {
 
   const fetchShared = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/shared/${user.email}`
+      `${import.meta.env.VITE_API_URL}/api/shared/${user.email}`
     );
 
     setSharedWithMe(res.data.sharedWithMe || []);
@@ -25,7 +25,7 @@ function Shared() {
   const handleRemove = async (docId, email) => {
     try {
       await axios.post(
-        `http://localhost:5000/api/remove-share/${docId}`,
+        `${import.meta.env.VITE_API_URL}/api/remove-share/${docId}`,
         { email }
       );
 
@@ -61,7 +61,7 @@ function Shared() {
                 </p>
 
                 <a
-                  href={`http://localhost:5000/uploads/${doc.filepath}`}
+                  href={`${import.meta.env.VITE_API_URL}/uploads/${doc.filepath}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-view"

@@ -18,7 +18,7 @@ function Dashboard() {
 
   const fetchDocs = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/documents/${user.email}`
+      `${import.meta.env.VITE_API_URL}/api/documents/${user.email}`
     );
     setDocs(res.data);
   };
@@ -26,7 +26,7 @@ function Dashboard() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/delete/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/delete/${id}`,
         { data: { email: user.email } }
       );
 
@@ -45,7 +45,7 @@ function Dashboard() {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/share/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/share/${id}`,
         { email: shareEmail }
       );
 
@@ -96,7 +96,7 @@ function Dashboard() {
 
             <div className="file-actions">
               <a
-                href={`http://localhost:5000/uploads/${doc.filepath}`}
+                href={`${import.meta.env.VITE_API_URL}/uploads/${doc.filepath}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-view"
